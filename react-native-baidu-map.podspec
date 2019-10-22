@@ -6,20 +6,23 @@
 #  To see working Podspecs in the CocoaPods repo see https://github.com/CocoaPods/Specs/
 #
 
+require "json"
+package = JSON.parse(File.read(File.join(__dir__, "package.json")))
+
 Pod::Spec.new do |s|
 
   s.name         = "react-native-baidu-map"
-  s.version      = "1.0.8"
-  s.summary      = "Baidu Map for React Native"
+  s.version      = package["version"]
+  s.summary      = package["description"]
 
   s.description  = <<-DESC
   Baidu Map views and modules for React Native
                    DESC
 
-  s.homepage     = "https://github.com/lovebing/react-native-baidu-map"
+  s.homepage     = package["homepage"]
   s.screenshots  = "https://raw.githubusercontent.com/lovebing/react-native-baidu-map/master/images/android.jpg", "https://raw.githubusercontent.com/lovebing/react-native-baidu-map/master/images/ios.jpg"
 
-  s.license      = "MIT"
+  s.license      = package["license"]
   # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
 
   s.author             = { "lovebing" => "tangyangjian@gmail.com" }
@@ -41,14 +44,14 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :http => "http://repo.codeboot.net/pod/http/react-native-baidu-map/1.0.8/source.zip" }
+  s.source       = { :http => "https://github.com/Riant/react-native-baidu-map/archive/#{s.version}.zip" }
 
   s.source_files  = "ios/RCTBaiduMap/**/*.{h,m}"
   s.exclude_files = ""
 
   # s.public_header_files = "**/*.h"
 
-  s.frameworks = "CoreLocation", "QuartzCore", "OpenGLES", "SystemConfiguration", "CoreGraphics", "Security", "CoreTelephony" 
+  s.frameworks = "CoreLocation", "QuartzCore", "OpenGLES", "SystemConfiguration", "CoreGraphics", "Security", "CoreTelephony"
   s.static_framework = true
   s.libraries = "c++", "sqlite3", "ssl", "crypto"
 
