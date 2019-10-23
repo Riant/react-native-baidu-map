@@ -44,7 +44,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => 'https://github.com/wonday/react-native-pdf.git', :tag => "v#{s.version}" }
+  s.source       = { :git => 'https://github.com/Riant/react-native-baidu-map.git', :tag => "v#{s.version}" }
 
   s.source_files  = "ios/RCTBaiduMap/**/*.{h,m}"
   s.exclude_files = ""
